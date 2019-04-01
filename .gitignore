@@ -1,6 +1,6 @@
 node_modules/
 dist/
 /coverage/
-npm-debug.*.log
+*.log
 yarn.lock
 package-lock.json

@@ -30,7 +30,7 @@ module.exports = {
                 modules: false,
                 loose: true,
                 useBuiltIns: 'usage',
-                corejs: 'corejs@3',
+                corejs: 3,
                 targets: {
                   browsers: [
                     "last 4 versions",

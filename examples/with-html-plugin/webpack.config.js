@@ -31,7 +31,7 @@ module.exports = {
                 modules: false,
                 loose: true,
                 useBuiltIns: 'usage',
-                corejs: 'corejs@3',
+                corejs: 3,
                 targets: {
                   browsers: [
                     "last 4 versions",
@@ -48,8 +48,23 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('postcss-flexbugs-fixes'),
+                require('postcss-preset-env')({
+                  autoprefixer: {
+                    flexbox: 'no-2009',
+                  },
+                  stage: 3,
+                }),
+              ],
+            }
+          }
         ],
       },
       {

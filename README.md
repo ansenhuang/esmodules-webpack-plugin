@@ -54,12 +54,22 @@ And run `webpack` via your preferred method.
 
 Compile JavaScript for ESModules with this config, the plugin will inject any assets exclude `.js` that you compiled before, so we don't build assets twice.
 
+**tips:** If `webpackConfig` wasn't undefined, `webpackOptions` would be ignored.
+
 ### `webpackOptions`
 
 * Type: `Object`
 * Required: `false`
 
 It also a webpackConfig for ESModules, but it will merge to defaultConfig which is based on our previous config, so it's flexible when you need to load some plugins or options.
+
+### `useStyleLoader`
+
+* Type: `Boolean`
+* Required: `false`
+* default: development=true, production=false
+
+If `style-loader` was used, please let me know so we can deal with `css` and inject css to `<style></style>`.
 
 ## Examples
 
@@ -99,7 +109,7 @@ module.exports = {
                 modules: false,
                 loose: true,
                 useBuiltIns: 'usage',
-                corejs: 'corejs@3',
+                corejs: 3,
                 targets: {
                   browsers: [
                     "last 4 versions",
