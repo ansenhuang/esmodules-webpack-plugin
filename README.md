@@ -63,13 +63,15 @@ Compile JavaScript for ESModules with this config, the plugin will inject any as
 
 It also a webpackConfig for ESModules, but it will merge to defaultConfig which is based on our previous config, so it's flexible when you need to load some plugins or options.
 
-### `useStyleLoader`
+### `styleLoader`
 
-* Type: `Boolean`
+* Type: `String|Boolean`
 * Required: `false`
 * default: development=true, production=false
 
 If `style-loader` was used, please let me know so we can deal with `css` and inject css to `<style></style>`.
+
+**tips:** `String = [style-loader path]`
 
 ## Examples
 
