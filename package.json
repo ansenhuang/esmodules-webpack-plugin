@@ -13,7 +13,7 @@
     "example": "node ./scripts/build-example.js",
     "test": "jest --runInBand --verbose --coverage",
     "test-watch": "jest --runInBand --watch",
-    "release": "standard-version"
+    "release": "standard-version && git push && npm publish"
   },
   "dependencies": {
     "loader-utils": "^1.2.3"
