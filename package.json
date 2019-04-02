@@ -9,7 +9,7 @@
     "lib/"
   ],
   "scripts": {
-    "commit": "git-cz",
+    "commit": "git add . && git-cz",
     "example": "node ./scripts/build-example.js",
     "test": "jest --runInBand --verbose --coverage",
     "test-watch": "jest --runInBand --watch",
@@ -33,10 +33,13 @@
     "file-loader": "^3.0.1",
     "html-webpack-plugin": "^4.0.0-beta.5",
     "jest": "24.5.0",
+    "jest-haste-map": "^24.6.0",
+    "jest-resolve": "^24.6.0",
     "mini-css-extract-plugin": "^0.5.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
+    "standard-version": "^5.0.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
@@ -60,6 +63,9 @@
     }
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/test"
+    ]
   }
 }
