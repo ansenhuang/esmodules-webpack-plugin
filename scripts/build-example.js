@@ -5,7 +5,8 @@ const inquirer = require('inquirer');
 
 const args = process.argv.slice(2);
 const currentExample = args[0];
-const isDev = ['--dev', '--development'].indexOf(args[1]) !== -1;
+const isAll = args.indexOf('--all') !== -1;
+let isDev = args.indexOf('--dev') !== -1;
 
 const examplesPath = path.join(__dirname, '../examples');
 const examples = fs.readdirSync(examplesPath).filter(file => {
@@ -27,6 +28,16 @@ const run = answer => {
     }
   );
 };
+
+if (isAll) {
+  examples.forEach(example => {
+    run({
+      example,
+      isDev: false,
+    });
+  });
+  return;
+}
 
 if (currentExample && examples.indexOf(currentExample) !== -1) {
   run({

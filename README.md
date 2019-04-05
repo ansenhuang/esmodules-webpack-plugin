@@ -12,7 +12,7 @@
 
 # esmodules-webpack-plugin
 
-This plugin build an extra JavaScript for ESModules, which supports load with `<script type="module" src="..."></script>`.
+This plugin build an extra JavaScript for ESModules, it supports loading with `<script type="module" src="..."></script>`.
 
 ## Getting Started
 
@@ -40,9 +40,9 @@ And run `webpack` via your preferred method.
 
 ## Features
 
-* Build 2 completely different files for modern and legacy browsers
-* Avoid rebuild the assets except JavaScript
-* Work well with HtmlWebpackPlugin
+* Build completely different files for both modern and legacy browsers
+* Avoid rebuilding the assets except JavaScript
+* Support html-webpack-plugin and inject scripts automatically
 * ...
 
 ## Options
@@ -52,16 +52,16 @@ And run `webpack` via your preferred method.
 * Type: `Object`
 * Required: `false`
 
-Compile JavaScript for ESModules with this config, the plugin will inject any assets exclude `.js` that you compiled before, so we don't build assets twice.
+Compile JavaScript for ESModules with this config, the plugin will inject any assets exclude `.js` that you compiled before, so we won't build assets twice.
 
-**tips:** If `webpackConfig` wasn't undefined, `webpackOptions` would be ignored.
+**tips:** If `webpackConfig` is defined, `webpackOptions` will be ignored.
 
 ### `webpackOptions`
 
 * Type: `Object`
 * Required: `false`
 
-It also a webpackConfig for ESModules, but it will merge to defaultConfig which is based on our previous config, so it's flexible when you need to load some plugins or options.
+It also a webpackConfig for ESModules, the difference is that it will merge the defaultConfig which is based on previous config, so it's flexible when you need to load some plugins or options.
 
 ### `styleLoader`
 
@@ -69,13 +69,11 @@ It also a webpackConfig for ESModules, but it will merge to defaultConfig which 
 * Required: `false`
 * default: development=true, production=false
 
-If `style-loader` was used, please let me know so we can deal with `css` and inject css to `<style></style>`.
-
-**tips:** `String = [style-loader path]`
+If `style-loader` was used, please let me know so we can deal with `css` and inject css to js.
 
 ## Examples
 
-[refer to here](./examples)
+[Refer to here](./examples)
 
 ## License
 
