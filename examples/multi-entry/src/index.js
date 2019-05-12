@@ -22,3 +22,7 @@ new Promise(resolve => {
 }).then(() => {
   console.log('I was resolved by Promise after 1000ms.');
 });
+
+import('./test').then(res => {
+  console.log(res);
+});
